@@ -17,7 +17,7 @@ TELEGRAM_SEND_MESSAGE_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/s
 @app.route("/telegram_webhook", methods=["GET"])
 def telegram_webhook():
     # Extract the message from the Telegram request
-    message = requests.get_json()["message"]["text"]
+    message = request.get_json()["message"]["text"]
 
     # Use GPT-3 to generate a response to the message
     response = openai.Completion.create(
