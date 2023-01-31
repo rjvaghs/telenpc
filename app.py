@@ -5,7 +5,7 @@ from flask import Flask, request
 app = Flask(__name__)
 
 # Initialize OpenAI API key
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Your Telegram Bot API key
 TELEGRAM_BOT_TOKEN = "5970232087:AAHpnfPXJtQIA1k2ZFcntRi5_kLdvlWMahE"
