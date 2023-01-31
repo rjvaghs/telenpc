@@ -1,3 +1,4 @@
+import os
 import openai
 import requests
 from flask import Flask, request
