@@ -13,7 +13,7 @@ TELEGRAM_BOT_TOKEN = "5970232087:AAHpnfPXJtQIA1k2ZFcntRi5_kLdvlWMahE"
 # URL for sending messages to Telegram bot
 TELEGRAM_SEND_MESSAGE_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
 
-@app.route("/telegram_webhook", methods=["POST"])
+@app.route("/telegram_webhook", methods=["GET"])
 def telegram_webhook():
     # Extract the message from the Telegram request
     message = requests.get_json()["message"]["text"]
@@ -29,7 +29,7 @@ def telegram_webhook():
     ).get("choices")[0].text
 
     # Send the response back to Telegram
-    requests.post(TELEGRAM_SEND_MESSAGE_URL, json={
+    requests.get(TELEGRAM_SEND_MESSAGE_URL, json={
         "chat_id": request.get_json()["message"]["chat"]["id"],
         "text": response,
     })
