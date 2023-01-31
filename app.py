@@ -5,10 +5,10 @@ from flask import Flask, request
 app = Flask(__name__)
 
 # Initialize OpenAI API key
-openai.api_key = "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"
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 # Your Telegram Bot API key
-TELEGRAM_BOT_TOKEN = "5970232087:AAHpnfPXJtQIA1k2ZFcntRi5_kLdvlWMahE"
+TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 
 # URL for sending messages to Telegram bot
 TELEGRAM_SEND_MESSAGE_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
